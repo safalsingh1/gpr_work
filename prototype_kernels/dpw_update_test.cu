@@ -27,26 +27,20 @@ int main() {
     int N = 256;
     size_t size = N * sizeof(float);
     
-    // Allocate host memory
     float *h_Hx = (float *)malloc(size);
     float *h_Ey = (float *)malloc(size);
 
-    // Initialize with dummy values
     for (int i = 0; i < N; i++) {
         h_Hx[i] = 0.0f;
         h_Ey[i] = 1.0f; // Uniform Ex field
     }
 
-    // Allocate device memory
     float *d_Hx, *d_Ey;
     cudaMalloc((void **)&d_Hx, size);
     cudaMalloc((void **)&d_Ey, size);
 
-    // Copy to device
     cudaMemcpy(d_Hx, h_Hx, size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_Ey, h_Ey, size, cudaMemcpyHostToDevice);
-
-    // Setup 1D execution grid
     int threadsPerBlock = 256;
     int blocksPerGrid = (N + threadsPerBlock - 1) / threadsPerBlock;
 
