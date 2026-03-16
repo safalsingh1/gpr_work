@@ -1,0 +1,16 @@
+#title: Minimal DPW Example for GPU Development
+
+#domain: 0.1 0.1 0.04
+#dx_dy_dz: 0.002 0.002 0.002
+#time_window: 1e-9
+
+#material: 1.0 0.0 1.0 0.0 free_space
+
+#waveform: ricker 1.0 1.5e9 my_pulse
+
+# TF/SF Box corners and Plane Wave Definitions:
+# theta, phi, psi, minX, minY, minZ, maxX, maxY, maxZ, wave_id, material
+#plane_wave_angles: 0.02 0.02 0.02 0.08 0.08 0.02 45.0 45.0 90.0 my_pulse free_space
+
+# A simple target inside the box to generate scattering
+#cylinder: 0.05 0.05 0.0 0.05 0.05 0.04 0.01 pec
